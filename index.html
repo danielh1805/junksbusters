@@ -53,17 +53,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 	<!-- Aggregate Rating Markup -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "מחזור מתכות",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "reviewCount": "24"
-      }
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "מחזור מתכות",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "24"
+  },
+  "itemReviewed": {
+    "@type": "Service",
+    "name": "מחזור מתכות"
+  }
+}
+</script>
+
 
     <!-- Other head elements (CSS, fonts, etc.) -->
     <link rel="stylesheet" href="style.css">
