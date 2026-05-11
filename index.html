@@ -298,15 +298,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
 
-    <!-- WhatsApp and Call Button Container -->
-    <div class="action-buttons">
-        <div class="whatsapp-button" onclick="window.open('https://wa.me/+972524796363?text=היי%20אשמח%20לקבל%20הצעת%20מחיר%20', '_blank')">
-            <i class="fab fa-whatsapp"></i>
-        </div>
-        <div class="call-button" onclick="window.location.href='tel:+972524796363';">
-            <i class="fas fa-phone-alt"></i>
-        </div>
+
+
+    <script>
+  function trackWhatsApp() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'whatsapp_click', click_url: 'https://wa.me/+972524796363' });
+    window.open('https://wa.me/+972524796363?text=היי%20אשמח%20לקבל%20הצעת%20מחיר%20', '_blank');
+  }
+
+  function trackCall() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'phone_click', click_url: 'tel:+972524796363' });
+    window.location.href = 'tel:+972524796363';
+  }
+</script>
+
+<div class="action-buttons">
+    <div class="whatsapp-button" onclick="trackWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
     </div>
+    <div class="call-button" onclick="trackCall()">
+        <i class="fas fa-phone-alt"></i>
+    </div>
+</div>
 
     <script>
         function toggleMenu() {
