@@ -62,7 +62,7 @@
     <!-- Header -->
     <header role="banner">
         <h1>קונה נירוסטה בישראל – פינוי ומחזור נירוסטה במחירים תחרותיים</h1>
-        <button class="phone-button" onclick="window.location.href='tel:+972524796363';">התקשרו אלינו עכשיו</button>
+        <button class="phone-button" onclick="trackCall()">התקשרו אלינו עכשיו</button>
     </header>
 
     <!-- Navigation -->
@@ -178,14 +178,28 @@
     </footer>
 
     <!-- WhatsApp and Call Button Container -->
-    <div class="action-buttons">
-        <div class="whatsapp-button" onclick="window.open('https://wa.me/+972524796363?text=Hello%20there!', '_blank')">
-            <i class="fab fa-whatsapp"></i>
-        </div>
-        <div class="call-button" onclick="window.location.href='tel:+972524796363';">
-            <i class="fas fa-phone-alt"></i>
-        </div>
+     <script>
+  function trackWhatsApp() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'whatsapp_click', click_url: 'https://wa.me/+972524796363' });
+    window.open('https://wa.me/+972524796363?text=היי%20אשמח%20לקבל%20הצעת%20מחיר%20', '_blank');
+  }
+
+  function trackCall() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'phone_click', click_url: 'tel:+972524796363' });
+    window.location.href = 'tel:+972524796363';
+  }
+</script>
+
+<div class="action-buttons">
+    <div class="whatsapp-button" onclick="trackWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
     </div>
+    <div class="call-button" onclick="trackCall()">
+        <i class="fas fa-phone-alt"></i>
+    </div>
+</div>
 
     <script>
         function toggleMenu() {
